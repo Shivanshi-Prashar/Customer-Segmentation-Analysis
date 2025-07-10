@@ -52,24 +52,6 @@ def extract_text_from_pdf(pdf_path):
     except Exception as e:
         log(f"Error reading PDF text: {e}")
         return ""
-'''
-def convert_pdf_to_images(pdf_path):
-    try:
-        images = convert_from_path(pdf_path, dpi=300)
-        image_paths = []
-        with tempfile.TemporaryDirectory() as temp_dir:
-            for i, image in enumerate(images):
-                image_path = os.path.join(temp_dir, f"page_{i+1}.png")
-                image.save(image_path, "PNG")
-                # ✅ Use shutil.copy for cross-platform compatibility
-                new_path = f"./page_{os.path.basename(image_path)}"
-                shutil.copy(image_path, new_path)
-                image_paths.append(new_path)
-        return image_paths
-    except Exception as e:
-        print(f"Error converting PDF to images: {e}")
-        return []
-'''
 
 def convert_pdf_to_images(pdf_path):
     try:
